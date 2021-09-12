@@ -10,7 +10,7 @@ trigger:
 
 # Variables
 variables:
-  tag: '${Build.BuildId}'
+  tag: '$(Build.BuildId)'
 
 stages:
 # Build Stage
@@ -30,8 +30,8 @@ stages:
             command: 'buildAndPush'
             Dockerfile: '**/Dockerfile'
             tags: |
-              ${tag}
-              ${Build.SourceVersion}
+              $(tag)
+              $(Build.SourceVersion)
         # Task-2: Copy kube-manifest files to Build Artifact Directory
         - task: CopyFiles@2
           inputs:
